@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class NoteServiceImpl {
+public class NoteServiceImpl implements NoteService{
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -52,6 +52,11 @@ public class NoteServiceImpl {
             return noteList.stream().map(note -> new NoteDto(note)).collect(Collectors.toList());
         }
         return Collections.emptyList();
+    }
+
+    @Override
+    public Optional<NoteDto> getNoteById(Long noteId) {
+        return Optional.empty();
     }
 
 //    @Transactional weird bugs?
